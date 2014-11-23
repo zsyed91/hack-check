@@ -30,6 +30,8 @@ var App = {
 	renderResponse: function(data) {
 		var site;
 		var $listing = $("#result");
+		$listing.empty();
+		
 		var ul;
 		var listings = [];
 
