@@ -6,8 +6,10 @@ var App = {
 		this.compileTemplates();
 
 	},
+	
 	api_path: "https://community-haveibeenpwned.p.mashape.com/breachedaccount/",
 	api_token: "7zUVdPs4sfmsh5oFFQcRwMX62HKdp1BNVl6jsn62VZyLZ47Rb7",
+	
 	checkStatus: function(event){
 		event.preventDefault();
 		var email = $("#email").val();
@@ -24,6 +26,7 @@ var App = {
 
 		});
 	},
+	
 	renderResponse: function(data) {
 		var site;
 		var $listing = $("#result");
@@ -47,7 +50,9 @@ var App = {
 			App.templates[templateName] = Handlebars.compile(source);
 		});
 	},
+
 	templates: [],
+	
 	renderTemplate: function(template, context) {
 		return this.templates[template](context);
 	}
