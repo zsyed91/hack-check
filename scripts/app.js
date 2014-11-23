@@ -4,6 +4,7 @@ var App = {
 		$statusBtn.click(this.checkStatus);
 
 		this.compileTemplates();
+		this.addHandlebarsHelpers();
 
 	},
 	
@@ -31,7 +32,7 @@ var App = {
 		var site;
 		var $listing = $("#result");
 		$listing.empty();
-		
+
 		var ul;
 		var listings = [];
 
@@ -51,6 +52,22 @@ var App = {
 			var source = $("#" + templateName).html();
 			App.templates[templateName] = Handlebars.compile(source);
 		});
+	},
+
+	addHandlebarsHelpers: function(){
+		Handlebars.registerHelper('formatDate', this.helpers.formatDate);
+	},
+
+	helpers: {
+		formatDate: function(date) {
+			var date_pieces = date.split("-");
+			var final_date = new Date();
+			final_date.setFullYear(date_pieces[0]);
+			final_date.setMonth(date_pieces[1] - 1);
+			final_date.setDate(date_pieces[2]);
+
+			return final_date.toLocaleFormat("%b. %d, %Y");
+		}
 	},
 
 	templates: [],
