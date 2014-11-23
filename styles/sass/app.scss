@@ -49,16 +49,51 @@ p {
 
 
 #install-btn {
-    background: #0088cc; /* Old browsers */
+    background: #0088cc;
     text-align: center;
     display: inline-block;
     color: white;
-    width: 50px;
+    width: 75px;
     height: 100%;
+    border: 1px solid #7aa7bd;
 }
 
 input {
 	width: 100%;
+}
+
+.breach-results {
+	list-style: none;
+	padding: 0;
+
+	li {
+		padding: 15px;
+		@include transparent-background(46, 46, 46, 0.75, #2e2e2e);
+		margin-top: 15px;
+
+		h3 {
+			color: $heading-color;
+		}
+
+		h4 {
+			color: lighten($heading-color, 20%);
+		}
+
+		.date {
+			color: lighten($heading-color, 10%);
+		}
+
+		.stolen-item {
+			display: inline-block;
+			background: #434343;
+			margin: 15px 15px 0 0;
+			padding: 10px;
+			font-size: 12pt;
+
+		}
+	}
+
+
 }
 
 

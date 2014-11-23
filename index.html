@@ -69,8 +69,26 @@
 <script id="listing" type="text/x-handlebars-template">
 	<li>
 		<h3>{{this.Title}}</h3>
+		<span class="date">{{this.BreachDate}}</span>
+
+		<h4>What was stolen?</h4>
+
+		{{#each this.DataClasses}}
+			<p class="stolen-item">{{this}}</p>
+		{{/each}}
+
+		<h4>Description</h4>
 		<p>{{{this.Description}}}</p>
 	</li>
 </script>
+
+<script id="breach-results" type="text/x-handlebars-template">
+	<ul class="breach-results">
+		{{#each this.listings}}
+			{{{this}}}
+		{{/each}}
+	</ul>
+</script>
+
 </body>
 </html>

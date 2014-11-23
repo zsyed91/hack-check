@@ -8,7 +8,8 @@ var App = {
 	},
 	api_path: "https://community-haveibeenpwned.p.mashape.com/breachedaccount/",
 	api_token: "7zUVdPs4sfmsh5oFFQcRwMX62HKdp1BNVl6jsn62VZyLZ47Rb7",
-	checkStatus: function(){
+	checkStatus: function(event){
+		event.preventDefault();
 		var email = $("#email").val();
 
 		email = encodeURIComponent(email);
@@ -26,16 +27,20 @@ var App = {
 	renderResponse: function(data) {
 		var site;
 		var $listing = $("#result");
+		var ul;
+		var listings = [];
+
 		for (var index in data) {
 			site = data[index];
 
-			var html = App.renderTemplate("listing", site);
-			$listing.append(html);
+			var listing = App.renderTemplate("listing", site);
+			listings.push(listing);
 		}
+		ul = App.renderTemplate("breach-results", {listings: listings});
+		$listing.append(ul);
 	},
 
 	compileTemplates: function() {
-
 		$("script[type='text/x-handlebars-template']").each(function(index, template){
 			var templateName = template.id;
 			var source = $("#" + templateName).html();
