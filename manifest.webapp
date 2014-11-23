@@ -1,5 +1,5 @@
 {
-  "version": "0.1",
+  "version": "1.0",
   "name": "Hack Check",
   "description": "See if any of your accounts have been compromised by a major hack",
   "launch_path": "/index.html",
