@@ -30,24 +30,29 @@
 
 
 <div class="container">
-<section class="jumbotron attention-section">
+	<section class="jumbotron attention-section">
 
-	<p>Enter your email address below to find out if any accounts have been compromised
-		by any recent hacks.</p>
+		<p>Enter your email address below to find out if any accounts have been compromised
+			by any recent hacks.</p>
 
-</section>
+	</section>
 
-<section>
+	<section>
 
-	<p>Email:</p>
-	<input type="email" placeholder="Email Address..." />
-	
-	<br><br>
+		<p>Email:</p>
+		<input type="email" placeholder="Email Address..." />
+		
+		<br><br>
 
-	<a href="#" id="submit" class="btn btn-primary btn-block">Check Status</a>
-</section>
+		<a href="#" id="submit" class="btn btn-primary btn-block">Check Status</a>
+	</section>
+
+	<div id="result">
+
+	</div>
 
 </div>
+
 
 
 
@@ -61,6 +66,11 @@
 <script src="assets/js/app.js"></script>
 
 <!-- Handlebars templates -->
-
+<script id="listing" type="text/x-handlebars-template">
+	<li>
+		<h3>{{this.Title}}</h3>
+		<p>{{this.Description}}</p>
+	</li>
+</script>
 </body>
 </html>
