@@ -1,4 +1,4 @@
-assets
+assets/*
 .DS_Store
 .idea
 .sass-cache
