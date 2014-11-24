@@ -3,7 +3,7 @@ var button = document.getElementById('install-btn');
 
 if(navigator.mozApps) {
 
-var manifest_url = location.href + 'manifest.webapp';
+var manifest_url = location.origin + '/manifest.webapp';
 
 function install(ev) {
   ev.preventDefault();
