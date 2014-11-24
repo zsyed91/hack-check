@@ -10,3 +10,8 @@ See if your email has been compromised by any hacks. This is a Firefox OS App an
 - Find out what was stolen aside from your email address
 - Find out when it was stolen
 - A description of the hack and some details about it
+
+
+
+
+*Powered by data from [Have I Been Pwned](http://haveibeenpwned.com)*
