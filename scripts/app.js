@@ -62,6 +62,7 @@ var App = {
 	renderNoEmailFound: function() {
 
 		var $result = $("#result");
+		$result.empty();
 
 		$result.append(App.renderTemplate("email-not-found"));
 
