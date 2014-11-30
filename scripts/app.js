@@ -15,6 +15,10 @@ var App = {
 		event.preventDefault();
 		var email = $("#email").val();
 
+		App.api_call(email);
+	},
+
+	api_call: function(email) {
 		email = encodeURIComponent(email);
 
 		$.ajax({
@@ -24,7 +28,10 @@ var App = {
 			beforeSend: function(request) {
 				request.setRequestHeader("X-Mashape-Key", App.api_token);
 			}
-
+		})
+		.error(function(){
+			// This means the email was not found (returns a 404 when going through mashape)
+			App.renderNoEmailFound();
 		});
 	},
 	
@@ -42,8 +49,22 @@ var App = {
 			var listing = App.renderTemplate("listing", site);
 			listings.push(listing);
 		}
-		ul = App.renderTemplate("breach-results", {listings: listings});
-		$listing.append(ul);
+
+		if (listings.length) {
+			ul = App.renderTemplate("breach-results", {listings: listings});
+			$listing.append(ul);
+		}
+		else {
+			App.renderNoEmailFound();
+		}
+	},
+
+	renderNoEmailFound: function() {
+
+		var $result = $("#result");
+
+		$result.append(App.renderTemplate("email-not-found"));
+
 	},
 
 	compileTemplates: function() {

@@ -92,7 +92,14 @@ input {
 
 		}
 	}
+}
 
+.secure-email {
+	width: 100%;
+	text-align: center;
+	color: $text-color;
+	padding: 15px 5px;
+	@include transparent-background(46, 46, 46, 0.75, #2e2e2e);
 
 }
 
